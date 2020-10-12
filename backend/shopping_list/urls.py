@@ -1,7 +1,8 @@
+from django.contrib import admin
 from django.urls import include, path
 from rest_framework import routers
 
-from backend.backend.views import UserViewSet, GroupViewSet
+from backend.shopping_list.views import UserViewSet, GroupViewSet
 
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
@@ -11,5 +12,6 @@ router.register(r'groups', GroupViewSet)
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
     path('', include(router.urls)),
+    path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]

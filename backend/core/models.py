@@ -13,6 +13,7 @@ class List(models.Model):
 class Item(models.Model):
     name = models.CharField(max_length=256)
     list = models.ForeignKey(List, on_delete=models.CASCADE)
+    done = models.BooleanField(default=False)
 
     def __init__(self):
         return self.name
